@@ -494,7 +494,7 @@ void MenuEliminar_Datos(stack <SacoCafe>& T, stack <SacoCafe>& B, stack <SacoCaf
 
 void SacarDatos(stack<SacoCafe>& T, int i)
 {
-    int Tamaño = 0, HaRea = 0;
+    int TamaÃ±o = 0, HaRea = 0;
     string valRea;
     bool ValidadcionNumero = true;
     BorrarC();
@@ -516,10 +516,10 @@ void SacarDatos(stack<SacoCafe>& T, int i)
         {
             cout << "\n----------------Cafe Pacamara---------------" << endl;
         }
-        Tamaño = T.size();
+        TamaÃ±o = T.size();
         do
         {
-            cout << "|Hay: " << Tamaño << " Cuantos sacos se retiraran: ";
+            cout << "|Hay: " << TamaÃ±o << " Cuantos sacos se retiraran: ";
             getline(cin, valRea);
             if (esNumerico(valRea))
             {
@@ -540,7 +540,7 @@ void SacarDatos(stack<SacoCafe>& T, int i)
                 break;
             }
         } while (ValidadcionNumero);
-        if (!HaRea < Tamaño || !(HaRea > Tamaño))
+        if (!HaRea < TamaÃ±o || !(HaRea > TamaÃ±o))
         {
             for (int a = 1; a <= HaRea; a++)
             {
@@ -639,7 +639,7 @@ void AgregarCorte(queue<ZonaCorte>& Z)
             cout << "Ingrese el nombre de la zona: "; getline(cin, za.Zona);
             do
             {
-                cout << "Ingrese el tamaño del area: "; getline(cin, Zona);
+                cout << "Ingrese el tamaÃ±o del area: "; getline(cin, Zona);
                 if (EsFloat(Zona))
                 {
                     zo = atoi(Zona.c_str());
@@ -894,6 +894,14 @@ void Eliminar()
         {
             if (Comparar(p->dato, ref))
             {
+                if (p == pInicio)
+                {
+                    pInicio = pInicio->sig;
+                }
+                else
+                
+                    q->sig = p->sig;
+                
                 delete(p);
                 cout << "Dato borrado!" << endl;
                 Pausa();
@@ -907,14 +915,7 @@ void Eliminar()
             system("pause");
             return;
         }
-        if (q == NULL)
-        {
-            pInicio = p->sig;
-        }
-        else
-        {
-            q->sig = p->sig;
-        }
+        
             
     }
     else
@@ -923,7 +924,6 @@ void Eliminar()
     }
     system("pause");
 }
-
 
 void MostrarDatos(Transporte p, bool MI)
 {
